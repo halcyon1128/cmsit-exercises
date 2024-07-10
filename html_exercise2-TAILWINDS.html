@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Tailwind Exercise</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import 'https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css';
+
+        body {
+
+
+            background-image: url(https://images.pexels.com/photos/2323432/pexels-photo-2323432.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+        }
+
+        .labeltext {
+            font-size: 0.5rem;
+            margin: 0%;
+            padding: 0%;
+        }
+
+        .underline {
+            border-bottom-color: gray;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-no-repeat bg-fixed bg-cover bg-center-bottom flex items-center justify-center h-screen text-white drop-shadow-xl">
+    <div
+        class="container w-80 bg-stone-950/85 bg-blend-luminosity p-3 rounded-2xl shadow-lg flex items-center justify-center">
+        <form action="">
+
+
+            <div class="mx-0 my-2"> <!--HEADERS-->
+                <h1 class="text-center text-2xl font-thin font-arialnarrow tracking-widest text-amber-100"
+                    name="titleheader" id="titleheader">
+                    LISTENLOUNGE
+                </h1>
+                <h2 class="m-0 p-1 text-xsmall text-center font-light font-lucida tracking-wide text-slate-200"
+                    name="signuptext" id="signuptext">
+                    Sign up and avail exclusive perks &
+                    listen to incredible indy artists
+                </h2>
+            </div>
+
+            <div class="container mx-0 mb-6"> <!--FORM INPUTS-->
+                <div class="bg-transparent items-center justify-center text-sm">
+
+                    <!--MOBILE NUMBER-->
+
+
+                    <div class="flex bg-transparent">
+                        <label for="countrycode" class="text-gray-200 labeltext">Mobile Number</label>
+                    </div>
+                    <div name="flag-icon-form" id="flag-icon-form">
+                        <!--FLAG GOES HERE-->
+                    </div>
+                    <div class="flex bg-transparent">
+                        <input type="text" name="country-code" id="country-code"
+                            class="bg-transparent block border-b-2 border-gray-400 w-7 mr-1 outline-none focus:outline-none"
+                            placeholder="+63">
+                        <input type="text" name="phone-number" id="phone-number"
+                            class="bg-transparent block border-b-2 border-gray-400 w-full outline-none focus:outline-none"
+                            placeholder="917 999 0000">
+                    </div>
+
+                    <!--EMAIL ADDRESS-->
+                    <div class="bg-transparent">
+                        <label for="email-address" class="text-gray-200 labeltext">*Email Address</label>
+                        <input type="text" name="email-address" id="email-address"
+                            class="bg-transparent block border-b-2 border-gray-400 w-full outline-none focus:outline-none"
+                            placeholder="youremailaddresshere@gmail.com">
+                    </div>
+
+                    <!--FIRST NAME/LAST NAME-->
+                    <div class="flex m-0 bg-transparent">
+                        <div class="mr-1 bg-transparent">
+                            <label for="first-name" class="text-gray-200 labeltext">*First Name</label>
+                            <input type="text" name="first-name" id="first-name"
+                                class="bg-transparent block border-b-2 border-gray-400 w-full outline-none focus:outline-none"
+                                placeholder="FIRST NAME">
+                        </div>
+                        <div class="ml-1 bg-stone-900/80 bg-transparent">
+                            <label for="last-name" class="text-gray-200 labeltext">*Last Name</label>
+                            <input type="text" name="last-name" id="last-name"
+                                class="bg-transparent block border-b-2 border-gray-400 w-full outline-none focus:outline-none" ''
+                                placeholder="LAST NAME">
+                        </div>
+                    </div>
+                    <div class="bg-stone-900/80 bg-transparent">
+                        <label for="bday" class="text-gray-200 labeltext">*Birthday</label>
+                        <input type="text" name="bday" id="bday"
+                            class="bg-transparent block border-b-2 border-gray-400 w-full outline-none focus:outline-none"
+                            placeholder="BIRTHDAY">
+                    </div>
+                    <div class="bg-stone-900/80 bg-transparent">
+                        <label for="nationality" class="text-gray-200 labeltext">Nationality</label>
+                        <input type="text" name="nationality" id="nationality"
+                            class="bg-transparent block border-b-2 border-gray-400 w-full outline-none focus:outline-none"
+                            placeholder="BIRTHDAY">
+                    </div>
+                    <div class="">
+                        <label for="input7" class="text-gray-200 labeltext">*Password</label>
+                        <input type="text" name="userpassword" id="userpassword"
+                            class="bg-transparent block border-b-2 border-gray-400 w-full outline-none focus:outline-none"
+                            placeholder="PASSWORD">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="flex items-center justify-center text-sm mx-0 mt-1">
+                <div
+                    class="button-container font-helvetica text-small tracking-tightest w-full flex flex-col items-center">
+                    <button name="buttonCreateAcct" id="buttonCreateAcct"
+                        class="bg-blue-500 hover:bg-blue-400 text-white width-40 w-full max-w-full px-4 py-2 rounded-md m-2">Create
+                        Account</button>
+                    <p class="text-xs text-center tracking-tightest" name="termscondstxt" id="termscondstxt">
+                        By clicking create account, you agree to ListenLounge
+                        <a href="https://www.termsconditionsserver/listenlounge/signup.com"
+                            style="color: #469aef;">Terms of
+                            Service and Privacy Policy</a>
+                    </p>
+                    <button name="buttonFBsignup" id="buttonFBsignup"
+                        class="bg-blue-500 hover:bg-blue-400 text-white width-40 w-full max-w-full px-4 py-2 rounded-md m-2 flex items-center justify-center">
+                        <img class="w-6 h-6 mr-2 flex items-center justify-center"
+                            src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"></img>
+                        Sign
+                        up
+                        with
+                        Facebook</button>
+                    <button name="buttonGsignup" id="buttonGsignup"
+                        class="bg-blue-500 hover:bg-blue-400 text-white width-40 w-full max-w-full px-4 py-2 rounded-md m-2 flex items-center justify-center">
+                        <img class="w-5 h-5 mr-2 flex items-center justify-center"
+                            src="https://www.google.com/favicon.ico"></img>
+                        Sign
+                        up
+                        with
+                        Google
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

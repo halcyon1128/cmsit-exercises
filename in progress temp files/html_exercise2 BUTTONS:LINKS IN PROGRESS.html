@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM exercise</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+    <style>       
+
+    
+    @media (max-width: 390px) {
+        body {
+            font-size: 10px; 
+            }
+        }
+        body {
+            width: auto;
+            height: 100%;
+            padding: 5%;
+            margin: 5% auto;
+            background-color: teal;
+            color: white;
+            background-image: url('https://scontent.fmnl33-6.fna.fbcdn.net/v/t1.18169-9/10174847_1480214335590189_606497083586745291_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=f798df&_nc_eui2=AeHecaNv_45rrsXjDJH2cBI6bVYBysfFufltVgHKx8W5-W0fTOwQfFDbm7ff6JP8bHw&_nc_ohc=PYhc4p5iPvIQ7kNvgGihAur&_nc_ht=scontent.fmnl33-6.fna&oh=00_AYCdhhMDB66ywsY67g-hbon5yVlZTTsGct4q18-Tb2gmSw&oe=66AB7D00');
+           
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center bottom;
+            vertical-align: middle;
+            text-align: center;
+            font-family: Helvetica, sans-serif;
+            line-height: 1.6;
+            box-sizing: border-box;
+        }
+        .main-box {
+            margin: auto;
+            width: 100%;
+            max-width: 300px;
+            min-height: 700px;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(4px);
+            overflow: hidden;
+        }
+        .main-header {
+            margin: 10% 0% 2%;
+            font-size: 150%;
+            color: white;
+            font-family: 'Arial Narrow', sans-serif;
+            font-weight: 550;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            text-align: center;
+            padding-left: 6px; /*offsets letterspacing 6px*/
+            
+        }
+        .signUpNow {
+            margin: 0 auto 5% ; /* 2% 5% 5%; orig values */
+            font-size: smaller;
+            color: #b4b4b4;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: 100;
+            text-align: justify; /* Justify text */
+            max-width: 84%; /* Example maximum width */   
+        }
+        .form-box {
+            margin: 1% 8% 1% 6%; /* offset field to center*/
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            line-height: 1;
+            border: none;
+        }
+        .form-box > input, select, span, label, form {
+            width: 100%;
+        }
+    
+        .form-settings {
+            margin: 2%;
+            font-family: Verdana, Tahoma, sans-serif;
+            font-style: bold;
+            font-size: 15%;
+            color: rgba(254, 249, 227, 0.725);
+            line-height: 1.1;
+            text-align: left;
+        }
+        .label-format {
+            flex: 1;
+            margin-bottom: 3%;
+            width: 50%;
+            padding: 1%;
+            font-size: 8%;
+            text-align: left;
+            color: beige;
+        }
+        .field-format {
+            flex: 1;
+            margin: 0px; /* 0% 1% 1.33% 1%; original margin*/
+            width: 100%;
+            padding: 1%; /* Optional: Add padding for better visual appearance */
+            font-size: 15px; /* Optional: Adjust font size */
+            color: white;
+            border: none; /* Remove default border */
+            outline: none; /* Remove default focus outline */
+            border-bottom: 1px solid #ccc; /* Add fixed underline */
+            background-color: rgba(0, 0, 0, 0);
+            overflow: hidden;
+        }
+        .flag-icon {
+            width: px; /* Adjust flag size */
+            height: auto;
+            line-height: 2;
+            border: none;
+          
+           
+        }
+        .country-code {
+            margin: 0% 1% 4% 0%;
+            max-width: 9%;
+            padding: 1% 0%;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            background-color: rgba(0, 0, 0, 0);
+            color: white;
+        }
+        .mobile-number {
+            margin-bottom: 4%;
+            max-width: 100%;
+            padding: 1%;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            background-color: rgba(0, 0, 0, 0);
+            color: white;
+        }
+        .password {
+            max-width: 100%;
+            padding: 1%;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            background-color: rgba(0, 0, 0, 0);
+            color: white;
+            overflow: hidden;
+        }
+        .mainheader-box {
+            width: max-content;
+        }
+        .buttonContainer {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .buttonContainer > span, p {
+            width: auto;
+        }
+        .button {   
+            width: 85%;
+            height: 200%;
+            border: none;
+            border-radius: 3%;
+            color: white;
+            padding: 5% 5%;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .buttonCreateAcct {
+            width: 100% auto;
+            background-color: #5f9ccf ;
+            font-size: 13px;
+        }
+        .buttonFBsignup {
+            width: 100% auto;
+            background-color: #1877F2;
+            font-size: 12px;
+        }
+        .buttonGsignup {
+            width: 100% auto;
+            background-color: #4285F4;
+            font-size: 12px;
+        }
+        .logoSetting {
+            margin: 0;
+            padding: 0;
+            height: 12%;
+            width: 12%;
+        }
+        .termsAndConditions {
+            margin: 0 auto;
+            color: #ceccb2;
+            padding: 0% 7%;
+            font-size: 60%;
+        }
+        .signupFBgoogText {
+            margin: 0 0 0 2%;
+            padding: 0;
+            line-height: 0;
+            font-size: 120%;
+        }
+    </style>
+</head>
+<body>
+        <div class="main-box"> 
+            
+            <h1 class="main-header">ListenLounge</h1>
+    
+            <h2 class="signUpNow">
+                Sign up now and avail exclusive perks
+                & listen to incredible local indy artists
+            </h2>
+            
+            <div class="form-box">
+                <form action="servergoeshere.com/serverscript.php" class="form-settings" >
+                    <label for="mobile-number" class="label-format">
+                        Mobile Number
+                    </label><br>
+<!--PLACEHOLDER-->  <span for="country-code" class="flag-icon flag-icon-ph"></span> 
+                    <input type="text" id="country-code" name="country-code" class="country-code" placeholder="+63" maxlength="3">
+                    <input type="text" id="mobile-number" name="mobile-number" class="mobile-number" maxlength="11" placeholder="917 123 4567"><br>
+                    <label for="email-address" class="label-format">
+                        <sup>*</sup>Email Address  
+                    </label><br>
+                    <input type="text" id="email-address" name="email-address" class="field-format" placeholder="Email Address">
+                </form>
+            </div>
+
+            <div class="form-box">
+                <form action="servergoeshere.com/serverscript.php" class="form-settings">
+                    <label width="50%" for="first-name" class="label-format">
+                        *First Name
+                    </label> <br>
+                    <input type="text" id="first-name" name="first-name" class="field-format" placeholder="First Name">
+                </form>
+                <form action="servergoeshere.com/serversidescript.php" class="form-settings">
+                    <label width="50" for="last-name" class="label-format">
+                        *Last Name
+                    </label><br>
+                    <input type="text" id="last-name" name="last-name" class="field-format" placeholder="Last Name">
+                </form> 
+             </div>
+
+             <div class="form-box">
+                <form action="servergoeshere.com/serverscript.php" class="form-settings">
+                    <label width="50%" for="bday" class="label-format">
+                        *Birthday
+                    </label> <br>
+                    <input type="text" id="bday" name="bday" class="field-format" placeholder="MM/DD/YYY">
+                </form>
+                <form action="servergoeshere.com/serversidescript.php" class="form-settings">
+                    <label width="50" for="nationality" class="label-format">   
+                        Nationality
+                    </label><br>
+                    <input type="text" id="nationality" name="nationality" class="field-format" placeholder="Nationality">
+                </form> 
+             </div>
+
+             <div class="form-box">
+                <form action="servergoeshere.com/serverscript.php" class="form-settings">
+                    <label class="label-format">
+                        *Password
+                    </label><br>
+                    <input type="text" id="pw" name="pw" class="field-format" maxlength="32" margin-bottom="0px">
+                    <label class="label-format" margin="0px" padding="0px" line-height="0px">
+                        <sup>At least 8 characters and must contain a number.</sup>
+                    </label>
+                </form>
+            </div>
+            <br>
+    
+            <div class="buttonContainer">
+                <button class="button buttonCreateAcct"> 
+                   CREATE ACCOUNT
+                </button>
+            </div>
+
+            <div class="termsAndConditions">
+                <p>
+                    By clicking create account, you agree to ListenLounge 
+                    <a href="https://www.termsconditionsserver/listenlounge/signup.com" style="color: #469aef;"> 
+                    Terms of Service and Privacy Policy</a>
+                </p>
+                <p> 
+                    or 
+                </p>
+            </div>
+
+
+            <div class="buttonContainer">
+                <button class="button buttonFBsignup">
+                    <img class="logoSetting" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"></img>
+                    <div class="signupFBgoogText">
+                        <p>Sign up with Facebook</p>
+                    </div>
+                </button>
+            </div>
+            <br>
+
+
+            <div class="buttonContainer">
+                <button class="button buttonGsignup">
+                    <img class="logoSetting" src="https://www.google.com/favicon.ico"></img>
+                    <div class="signupFBgoogText">
+                        <p>Sign up with Google</p>
+                    </div>
+                </button>
+            </div>
+
+        </div>
+
+    
+    
+</body>
+</html>
