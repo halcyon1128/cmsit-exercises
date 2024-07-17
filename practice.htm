@@ -15,6 +15,102 @@
         }
     </style>
 </head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import 'https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css';
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cubejs_grey: "#444468",
+                        table_bg: "#f3f3fb",
+                        table_headerbg: "#f8f7fc",
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="flex flex-col min-w-96 max-w-4xl min-h-96 max-h-screen mx-auto my-3">
+    <header class="flex p-3 justify-between items-center bg-cubejs_grey text-white">
+        <h1>cube.js</h1>
+        <div class="flex items-center justify-between">
+            <div class="flex items-center">
+                <img src="" alt="Github Icon" class="w-6 h-6 mr-2">
+                <h2>Github</h2>
+            </div>
+            <div class="flex items-center ml-4">
+                <img src="" alt="Slack Icon" class="w-6 h-6 mr-2">
+                <h2>Slack</h2>
+            </div>
+        </div>
+    </header>
+    <main class="flex flex-row sm:flex-col sm:justify-center items-start mt-4">
+        <aside class="w-32">
+            <div class="mb-4">
+                <img src="" alt="Profile Picture" class="w-16 h-16 rounded-full mb-2">
+                <h3>Some Name</h3>
+                <h4>Lorem ipsum</h4>
+            </div>
+            <hr class="mb-4">
+            <div>
+                <div class="mb-2 flex items-center">
+                    <img src="" alt="Dashboard Icon" class="w-6 h-6 mr-2">
+                    <h5>Dashboard</h5>
+                </div>
+                <div class="flex items-center">
+                    <img src="" alt="Orders Icon" class="w-6 h-6 mr-2">
+                    <h5>Orders</h5>
+                </div>
+            </div>
+        </aside>
+        <section class="flex-grow ml-4 sm:ml-0 sm:mt-4">
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white border border-gray-200">
+                    <thead class="bg-table_headerbg">
+                        <tr>
+                            <th class="py-2 px-4 border-b">Order id</th>
+                            <th class="py-2 px-4 border-b">Orders size</th>
+                            <th class="py-2 px-4 border-b">Full Name</th>
+                            <th class="py-2 px-4 border-b">User city</th>
+                            <th class="py-2 px-4 border-b">Order price</th>
+                            <th class="py-2 px-4 border-b">Status</th>
+                            <th class="py-2 px-4 border-b">Created at</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-table_bg">
+                            <td class="py-2 px-4 border-b">2</td>
+                            <td class="py-2 px-4 border-b">1</td>
+                            <td class="py-2 px-4 border-b">Oleta Langosh</td>
+                            <td class="py-2 px-4 border-b">San Francisco</td>
+                            <td class="py-2 px-4 border-b">$ 48</td>
+                            <td class="py-2 px-4 border-b">
+                                <ol>
+                                    <li>shipped</li>
+                                </ol>
+                            </td>
+                            <td class="py-2 px-4 border-b">02/01/2019</td>
+                        </tr>
+                        <!-- Add more rows as needed -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
 
 <body class="bg-gray-200 flex items-center justify-center h-screen">
     <div class="bg-white p-8 rounded-lg shadow-lg max-w-sm w-full">

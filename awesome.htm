@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Webpage</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                fontSize: {
+                    xs: '0.1rem',
+                    sm: '0.4rem',
+                    medium: '0.8rem',
+                    base: '0.5rem',
+                    lg: '1rem',
+                    xl: '1.25rem',
+                    '2xl': '1.563rem',
+                    '3xl': '1.953rem',
+                    '4xl': '2.441rem',
+                    '5xl': '3.052rem',
+                },
+            }
+        }
+    </script>
+</head>
+
+
+
+<body>
+    <header class="h-96 text-white bg-gray-800 px-32 pt-0 text-center flex flex-col items-top justify-center">
+        <nav class="mt-1 flex justify-between bg-gray-800 text-white text-medium">
+            <h5 class="m-0 p-0 font-bold">Header Logo</h5>
+            <div class="m-0 p-0 flex items-center text-xs font-light gap-5 text-gray-400">
+                <p>header link one</p>
+                <p>header link two</p>
+                <p>header link three</p>
+            </div>
+        </nav>
+        <div class="relative flex justify-center items-center h-30 w-full py-20 gap-5">
+            <div class="text-left text-wrap w-1/2">
+                <h1 class="text-2xl font-bold leading-none line-clamp-2">This website is awesome</h1>
+                <p class="text-xs text-grey-800 leading-tight my-2 line-clamp-3">This website has some subtext that goes
+                    here under
+                    the
+                    main title. It's
+                    a smaller font and the color
+                    is
+                    lower
+                    contrast.</p>
+                <button
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md text-xs p-4 w-24">
+                    Sign up
+                </button>
+            </div>
+            <div class="w-1/2 h-full max-h-42">
+                <img src="https://images.pexels.com/photos/165971/pexels-photo-165971.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                    class="w-full aspect-[4/1]" alt="Image description">
+            </div>
+        </div>
+    </header>
+
+    <main class="h-2/3 py-8 px-4 bg-grey_awesome border-t border-b border-gray-200">
+        <section class="py-8 px-4 bg-white border-t border-b border-gray-200">
+            <h4 class="text-2xl font-bold mb-4">Section 2</h4>
+            <p>Content for section 2.</p>
+        </section>
+        <section class="py-8 px-4 bg-white border-t border-b border-gray-200">
+            <h4 class="text-2xl font-bold mb-4">Section 3</h4>
+            <p>Content for section 3.</p>
+        </section>
+        <section class="py-8 px-4 bg-white border-t border-b border-gray-200">
+            <h4 class="text-2xl font-bold mb-4">Section 4</h4>
+            <p>Content for section 4.</p>
+        </section>
+    </main>
+
+    <footer class="bg-gray-200 py-8 text-center">
+        <p>&copy; 2022 My Webpage. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
