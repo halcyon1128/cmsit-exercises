@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positioning with Tailwind CSS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 p-10">
+
+    <div class="relative bg-white p-4 border rounded shadow mb-4">
+        <div class="relative bg-blue-100 p-4 rounded">
+            <p class="text-center">This is relative</p>
+        </div>
+    </div>
+
+    <div class="bg-white p-4 border rounded shadow mb-4" style="height: 200px; overflow-y: scroll;">
+        <div class="sticky top-0 bg-green-100 p-4 rounded">
+            <p class="text-center">This is sticky</p>
+        </div>
+        <p class="mt-4">Scroll down to see the sticky effect...</p>
+        <p class="mt-4">More content here...</p>
+        <p class="mt-4">Even more content...</p>
+        <p class="mt-4">Keep scrolling...</p>
+        <p class="mt-4">Almost there...</p>
+        <p class="mt-4">You found it!</p>
+    </div>
+
+    <div class="relative bg-white p-4 border rounded shadow mb-4">
+        <div class="absolute top-4 left-4 bg-yellow-100 p-4 rounded">
+            <p class="text-center">This is absolute</p>
+        </div>
+        <p class="mt-16">The absolute positioned element is placed here...</p>
+    </div>
+
+    <div class="relative bg-white p-4 border rounded shadow mb-4" style="height: 200px;">
+        <div class="fixed bottom-4 left-4 bg-red-100 p-4 rounded">
+            <p class="text-center">This is fixed</p>
+        </div>
+        <p class="mt-16">Scroll down to see the fixed effect...</p>
+        <p class="mt-4">More content here...</p>
+        <p class="mt-4">Even more content...</p>
+        <p class="mt-4">Keep scrolling...</p>
+        <p class="mt-4">Almost there...</p>
+        <p class="mt-4">You found it!</p>
+    </div>
+
+</body>
+
+</html>
