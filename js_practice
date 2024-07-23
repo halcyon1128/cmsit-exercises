@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bootstrap Grid with Tailwind CSS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+
+<body>
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Using Bootstrap Grid -->
+            <div class="col-md-6">
+                <!-- Tailwind Styling -->
+                <div class="p-4 border border-gray-300 bg-white shadow-lg">
+                    <h2 class="text-xl font-bold text-gray-800">Column 1</h2>
+                    <p class="text-gray-600">This column uses Bootstrap grid and Tailwind for styling.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 border border-gray-300 bg-white shadow-lg">
+                    <h2 class="text-xl font-bold text-gray-800">Column 2</h2>
+                    <p class="text-gray-600">This column uses Bootstrap grid and Tailwind for styling.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
