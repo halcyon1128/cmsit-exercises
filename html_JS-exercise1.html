@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tailwind CSS Form and Table</title>
+    <title>Sign-in Modals exercise</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
 
@@ -26,17 +26,12 @@
             return tableContentsArray;
         }
 
-
-
-
         // Adds new info to table
         function addInfo() {
-            // Extract values from the form/table
+            // Extract values from form/table
             const { userName, userEmail } = getFormInputs();
             const tableContentsArray = getTableContents();
-
-
-            // Check if either userName or userEmail is already in the table
+            // Check userName or userEmail if it's already in the table
             if (!userName && !userEmail) {
                 alert('Please enter a name and email.');
                 closeModalAddNew(); // Close the modal
@@ -45,24 +40,112 @@
                 // alert('Name or Email already in table');
                 alert('Name or Email is already used. Please try again.');
                 closeModalAddNew(); // Close the modal
+                clearUserInputs(); // Clear the input fields
             }
             else {
                 // Add new row to table
                 const tableBody = document.getElementById('myTable');
                 const newRow = document.createElement('tr');
                 newRow.innerHTML = `
-            <td class="border px-4 py-2">${userName}</td>
-            <td class="border px-4 py-2">${userEmail}</td>
-            <td class="border px-4 py-2">edit</td>
-            <td class="border px-4 py-2">delete</td>
-        `;
+                    <td class="border px-4 py-2">${userName}</td>
+                    <td class="border px-4 py-2">${userEmail}</td>
+                    <td class="border px-4 py-2"><button id="editButton" onclick="editInfo()">edit</button></td>
+                    <td class="border px-4 py-2"><button id="deleteButton" onclick="deleteInfo()">delete</button></td>
+                    `;
                 tableBody.appendChild(newRow);
                 removeBoilerplate(); // Remove boilerplate row if necessary
                 clearUserInputs(); // Clear the input fields
-
             }
+        }
 
 
+        // Removes rows containing search string; IMPORTANT for setting up editInfo()
+        // function removeRowsContaining(searchString) {
+        //     // Get the table body element
+        //     const tableBody = document.getElementById('myTable');
+
+        //     // Iterate through each row in the table body
+        //     Array.from(tableBody.getElementsByTagName('tr')).forEach(row => {
+        //         // Check if any cell in the row contains the search string
+        //         const rowContainsString = Array.from(row.getElementsByTagName('td')).some(cell =>
+        //             cell.textContent.includes(searchString)
+        //         );
+        //         // If the row contains the string, remove it
+        //         if (rowContainsString) {
+        //             row.remove();
+        //         }
+        //     });
+        // }
+
+        // mouse click listener to handle row editing in table
+        function handleRowClick(event) {
+            // Ensure that the click target is a table row
+            if (event.target.tagName === 'TD' || event.target.tagName === 'TR') {
+                // Find the closest <tr> element to the clicked target
+                const row = event.target.closest('tr');
+                // Get the row index and its content
+                const rowIndex = Array.from(row.parentNode.children).indexOf(row);
+                const cells = row.getElementsByTagName('td');
+                const cellValues = Array.from(cells).map(cell => cell.textContent);
+                // Pass the row index and content to the editInfo function
+                return { rowIndex, cellValues };
+            }
+        }
+
+        // Attach the event listener to the table
+        document.getElementById('myTable').addEventListener('click', handleRowClick);
+
+        //Edits info in table
+        function editInfo() {
+            // Open the modal
+            openModalEditInfo();
+            // hide add new button once pressed
+            hideButtonAddNew();
+            // Extract values from form/table
+            const { userName, userEmail } = getFormInputs();
+            const tableContentsArray = getTableContents();
+            handleRowClick();
+
+            // Check userName or userEmail if it's already in the table
+            if (!userName && !userEmail) {
+                alert('Please enter a name and email.');
+                closeModalAddNew(); // Close the modal
+            }
+            else if (tableContentsArray.includes(userName) || tableContentsArray.includes(userEmail)) {
+                // alert('Name or Email already in table');
+                alert('Name or Email is already used. Please try again.');
+                closeModalAddNew(); // Close the modal
+                clearUserInputs(); // Clear the input fields
+            }
+            else {
+                //removeRowsContaining(userName); // Remove rows containing the search string from the table
+                //removeRowsContaining(userEmail); // Remove rows containing the search string from the table
+
+                //edit the row in the table
+                const rowIndex = handleRowClick().rowIndex;
+                const row = document.querySelector(`#myTable tr:nth-child(${rowIndex + 1})`);
+                row.innerHTML = `
+                    <td class="border px-4 py-2">${userName}</td>
+                    <td class="border px-4 py-2">${userEmail}</td>
+                    <td class="border px-4 py-2"><button onclick="editInfo()">edit</button></td>
+                    <td class="border px-4 py-2"><button onclick="deleteInfo()">delete</button></td>
+                    `;
+
+
+
+                // Add new row to table
+                const tableBody = document.getElementById('myTable');
+                const newRow = document.createElement('tr');
+                newRow.innerHTML = `
+                    <td class="border px-4 py-2">${userName}</td>
+                    <td class="border px-4 py-2">${userEmail}</td>
+                    <td class="border px-4 py-2"><button onclick="editInfo()">edit</button></td>
+                    <td class="border px-4 py-2"><button onclick="deleteInfo()">delete</button></td>
+                    `;
+                tableBody.appendChild(newRow);
+                removeBoilerplate(); // Remove boilerplate row if necessary
+                clearUserInputs(); // Clear the input fields
+            }
         }
 
 
@@ -84,13 +167,10 @@
         function removeBoilerplate() {
             // Select the row by ID
             const row = document.getElementById('boilerplateRow');
-
             if (!row) return; // chatGPT: If the row doesn't exist, exit the function
-
             // Get text of username/email
             const userName = row.querySelector('#userName').textContent;
             const userEmail = row.querySelector('#userEmail').textContent;
-
             // function proper: removes boilerplate
             if (userName.includes('Name') || userEmail.includes('example@example.com')) {
                 row.remove(); // Remove the row
@@ -106,6 +186,8 @@
             document.getElementById('buttonAddNew').classList.remove('hidden');
         }
 
+
+        //MODAL FOR ADD NEW
         // Show modal Add New Info
         function openModalAddNew() {
             document.getElementById('modalAddNew').classList.remove('hidden');
@@ -115,15 +197,27 @@
             document.getElementById('modalAddNew').classList.add('hidden');
         }
 
-        // Function to close modalAddNew when clicking outside of it
-        // function closeModalOnOutsideClick(event) {
-        //     const modalAddNewWindow = document.getElementById('modalAddNew');
 
-        //     if (!modalAddNewWindow.classList.contains('hidden') && !modalAddNewWindow.contains(event.target)) {
-        //         // Add event listener to document
-        //         closeModalAddNew();
-        //     }
-        // }
+        //MODAL FOR EDIT
+        // Show modal Edit Info
+        function openModalEditInfo() {
+            document.getElementById('modalEditInfo').classList.remove('hidden');
+        }
+        // Hide modal Edit Info
+        function closeModalEditInfo() {
+            document.getElementById('modalEditInfo').classList.add('hidden');
+        }
+
+
+        // Function to close modalAddNew when clicking outside of it
+        function closeModalOnOutsideClick(event) {
+            const modalAddNewWindow = document.getElementById('modalAddNew');
+
+            if (!modalAddNewWindow.classList.contains('hidden') && !modalAddNewWindow.contains(event.target)) {
+                // Add event listener to document
+                closeModalAddNew();
+            }
+        }
 
 
 
@@ -145,8 +239,8 @@
                             <th class="border px-4 py-2 text-white font-thin"> - </th>
                         </tr>
                     </thead>
-                    <tbody class="odd: bg-gray-100 even: bg-white" id="myTable">
-                        <tr id="boilerplateRow">
+                    <tbody class="odd: bg-gray-100 even: bg-white text-slate-700" id="myTable">
+                        <tr id="boilerplateRow" class="text-gray-400">
                             <td class="border px-4 py-2">
                                 <p id="userName">Name</p>
                             </td>
@@ -177,7 +271,8 @@
     <section>
 
         <!-- Form ADD UserName and Email -->
-        <div id="modalAddNew" class="hidden z-50 max-w-md mx-auto mb-6 bg-white p-6 rounded-lg shadow-md">
+        <div id="modalAddNew"
+            class="hidden z-50 max-w-md mx-auto mb-6 bg-white p-6 rounded-lg shadow-md text-slate-700">
             <form>
                 <div class="mb-4">
                     <label for="username" class="block text-gray-700">Username</label>
@@ -196,8 +291,29 @@
             </form>
         </div>
 
+        <!-- Form ADD UserName and Email -->
+        <div id="modalEditInfo"
+            class="hidden z-50 max-w-md mx-auto mb-6 bg-white p-6 rounded-lg shadow-md text-slate-700">
+            <form>
+                <div class="mb-4">
+                    <label for="username" class="block text-gray-700">Username</label>
+                    <input type="text" id="userNameInput"
+                        class="mt-1 block w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Enter username">
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700">Email</label>
+                    <input type="email" id="userEmailInput"
+                        class="mt-1 block w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Enter email">
+                </div>
+                <button type="button" onclick="editInfo(); revealButtonAddNew(); closeModalAddNew();"
+                    class="w-full px-4 py-2 bg-cyan-500 text-white rounded-md hover:bg-cyan-600">Edit</button>
+            </form>
+        </div>
+
         <!-- Form with Delete Button -->
-        <div id"deleteRow" class="hidden max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+        <div id"deleteRow" class="hidden max-w-md mx-auto bg-white p-6 rounded-lg shadow-md text-slate-700">
             <form>
                 <button type="button"
                     class="w-full mb-4 px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600">ok

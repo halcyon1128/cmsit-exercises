@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind CSS Form and Table</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+
+
+        // Get form inputs
+        function getFormInputs() {
+            const userName = document.getElementById('userNameInput').value;
+            const userEmail = document.getElementById('userEmailInput').value;
+            return { userName, userEmail };
+        }
+
+        // Get table contents
+        function getTableContents() {
+            // Get all the text content from the table
+            const TableContents = document.getElementById('myTable').textContent;
+            // Generate an array of all single words in the table content
+            const tableContentsArray = TableContents
+                .trim() // Remove leading/trailing whitespace
+            return tableContentsArray;
+        }
+
+        //checks if userName is redunandant
+        function checkUserName() {
+            const userName = document.getElementById('userNameInput').value;
+            const tableContentsArray = getTableContents();
+            if (tableContentsArray.includes(userName)) {
+                alert('Name is already used. Please try again.');
+                clearUserInputs();
+            }
+        }
+
+        function checkUserEmail() {
+            const userEmail = document.getElementById('userEmailInput').value;
+            const tableContentsArray = getTableContents();
+            if (tableContentsArray.includes(userEmail)) {
+                alert('Email is already used. Please try again.');
+                clearUserInputs();
+            }
+        }
+
+        function checkIfFormEmpty() {
+            const userName = document.getElementById('userNameInput').value;
+            const userEmail = document.getElementById('userEmailInput').value;
+            if (!userName && !userEmail) {
+                alert('Please enter a name and email.');
+            }
+        }
+        // Adds new info to table
+        function addRow() {
+            // Extract values from the form/table
+            const { userName, userEmail } = getFormInputs();
+            if (userName && userEmail) {
+                // Add new row to table
+                const tableBody = document.getElementById('myTable');
+                const newRow = document.createElement('tr');
+                newRow.innerHTML = `
+            <td class="border px-4 py-2">${userName}</td>
+            <td class="border px-4 py-2">${userEmail}</td>
+            <td class="border px-4 py-2">edit</td>
+            <td class="border px-4 py-2">delete</td>
+        `;
+                tableBody.appendChild(newRow);
+                removeBoilerplate(); // Remove boilerplate row if necessary
+                clearUserInputs(); // Clear the input fields
+            }
+        }
+
+
+        //clears input fields in modalAddNew
+        function clearUserInputs() {
+            // Get the input elements by their IDs
+            const userNameInput = document.getElementById('userNameInput');
+            const userEmailInput = document.getElementById('userEmailInput');
+
+            // Clear their values
+            if (userNameInput) userNameInput.value = '';
+            if (userEmailInput) userEmailInput.value = '';
+        }
+
+        // removes boilerplate
+        function removeBoilerplate() {
+            // Select the row by ID
+            const row = document.getElementById('boilerplateRow');
+
+            if (!row) return; // chatGPT: If the row doesn't exist, exit the function
+
+            // Get text of username/email
+            const userName = row.querySelector('#userName').textContent;
+            const userEmail = row.querySelector('#userEmail').textContent;
+
+            // function proper: removes boilerplate
+            if (userName.includes('Name') || userEmail.includes('example@example.com')) {
+                row.remove(); // Remove the row
+            }
+        }
+
+        // Hide ADD NEW button
+        function hideButtonAddNew() {
+            document.getElementById('buttonAddNew').classList.add('hidden');
+        }
+        // Show ADD NEW button
+        function revealButtonAddNew() {
+            document.getElementById('buttonAddNew').classList.remove('hidden');
+        }
+
+        // Show modal Add New Info
+        function openModalAddNew() {
+            document.getElementById('modalAddNew').classList.remove('hidden');
+        }
+        // Hide modal Add New Info
+        function closeModalAddNew() {
+            document.getElementById('modalAddNew').classList.add('hidden');
+        }
+
+
+
+
+
+    </script>
+</head>
+
+<body id="body" class="bg-gray-100 p-6">
+
+    <section>
+        <!-- Table to display rows -->
+        <div class="max-w-4xl mx-auto mb-3 bg-white p-6 rounded-lg shadow-md overflow-hidden">
+            <div class="overflow-auto max-h-xl">
+                <table id="userTable" class="min-w-full border-collapse">
+                    <thead>
+                        <tr class="bg-neutral-500">
+                            <th class="border px-4 py-2 text-white font-thin">Name</th>
+                            <th class="border px-4 py-2 text-white font-thin">Email</th>
+                            <th class="border px-4 py-2 text-white font-thin"> - </th>
+                            <th class="border px-4 py-2 text-white font-thin"> - </th>
+                        </tr>
+                    </thead>
+                    <tbody class="odd: bg-gray-100 even: bg-white" id="myTable">
+                        <tr id="boilerplateRow">
+                            <td class="border px-4 py-2">
+                                <p id="userName">Name</p>
+                            </td>
+                            <td class="border px-4 py-2">
+                                <p id="userEmail">example@example.com</p>
+                            </td>
+                            <td class="border px-4 py-2">edit</td>
+                            <td class="border px-4 py-2">delete</td>
+                        </tr>
+
+                        <!-- More rows will be added here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Add new button -->
+        <div id="buttonAddNew" class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
+            <form>
+                <button type="button" onclick="openModalAddNew(); hideButtonAddNew();"
+                    class="w-full px-4 py-4 bg-green-500 text-white font-light text-lg tracking-wider rounded-md hover:bg-green-600 uppercase">add
+                    new
+                </button>
+
+            </form>
+        </div>
+    </section>
+    <section>
+
+        <!-- Form ADD UserName and Email -->
+        <div id="modalAddNew" class="hidden z-50 max-w-md mx-auto mb-6 bg-white p-6 rounded-lg shadow-md">
+            <form>
+                <div class="mb-4">
+                    <label for="username" class="block text-gray-700">Username</label>
+                    <input type="text" id="userNameInput"
+                        class="mt-1 block w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Enter username">
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700">Email</label>
+                    <input type="email" id="userEmailInput"
+                        class="mt-1 block w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Enter email">
+                </div>
+                <button type="button" onclick="addRow(); revealButtonAddNew(); closeModalAddNew();"
+                    class="w-full px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">Add</button>
+            </form>
+        </div>
+
+        <!-- Form with Delete Button -->
+        <div id"deleteRow" class="hidden max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+            <form>
+                <button type="button"
+                    class="w-full mb-4 px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600">ok
+                    1</button>
+                <button type="button" class="w-full px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600">cancel
+                    2</button>
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>
