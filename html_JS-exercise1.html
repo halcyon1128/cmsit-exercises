@@ -28,12 +28,12 @@
 
 
 
+
         // Adds new info to table
         function addInfo() {
             // Extract values from the form/table
             const { userName, userEmail } = getFormInputs();
             const tableContentsArray = getTableContents();
-
 
 
             // Check if either userName or userEmail is already in the table
@@ -61,7 +61,13 @@
                 clearUserInputs(); // Clear the input fields
 
             }
+
+
         }
+
+
+
+
 
         //clears input fields in modalAddNew
         function clearUserInputs() {
@@ -109,20 +115,22 @@
             document.getElementById('modalAddNew').classList.add('hidden');
         }
 
-        // hide modalAddNew with escape key
-        function handleEscapeKey(event) {
-            if (event.key === "Escape") {
-                closeModalAddNew();
-            }
-        }
+        // Function to close modalAddNew when clicking outside of it
+        // function closeModalOnOutsideClick(event) {
+        //     const modalAddNewWindow = document.getElementById('modalAddNew');
 
+        //     if (!modalAddNewWindow.classList.contains('hidden') && !modalAddNewWindow.contains(event.target)) {
+        //         // Add event listener to document
+        //         closeModalAddNew();
+        //     }
+        // }
 
 
 
     </script>
 </head>
 
-<body class="bg-gray-100 p-6">
+<body id="body" class="bg-gray-100 p-6">
 
     <section>
         <!-- Table to display rows -->
