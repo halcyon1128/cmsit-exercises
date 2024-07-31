@@ -162,18 +162,38 @@
 
         //edits User Info on Table
 
+
         function editInfo(button) {
             console.log('editInfo function called');
             const row = button.parentNode.parentNode;
             const cells = row.getElementsByTagName('td');
 
+            // Get the name and email cells
             const nameCell = cells[0];
             const emailCell = cells[1];
+
+            //populate modal with current values
+            document.getElementById('userNameEditInput').placeholder = nameCell.textContent.trim();
+            document.getElementById('userEmailEditInput').placeholder = emailCell.textContent.trim();
+            document.getElementById('userNameEditInput').classList.add("text-gray-400");
+            document.getElementById('userEmailEditInput').classList.add("text-gray-400");
+
+
+            // Extract current values
             const currentName = nameCell.textContent.trim();
             const currentEmail = emailCell.textContent.trim();
 
+
             // Extract form input values
             document.getElementById('editInfoButton').addEventListener('click', () => {
+
+                //remove placeholder text
+                document.getElementById('userNameEditInput').placeholder = '';
+                document.getElementById('userEmailEditInput').placeholder = '';
+                document.getElementById('userNameEditInput').classList.remove("text-gray-400");
+                document.getElementById('userEmailEditInput').classList.remove("text-gray-400");
+
+
                 const { editName, editEmail } = getFormInputs(); // INPUTS GO HERE
                 const tableBody = document.getElementById('myTable'); // Get all table contents current row
                 let tableContents = ''; //placeholder Array for contrasting with ROW BEING EDITED
@@ -324,13 +344,13 @@
             class="hidden z-50 fixed inset-20 w-auto h-72 max-w-md mx-auto mb-6 bg-white p-6 rounded-lg shadow-md text-slate-700">
             <form>
                 <div class="mb-4">
-                    <label class="block text-gray-700">Username</label>
+                    <label class="block text-gray-700"></label>
                     <input type="text" id="userNameEditInput"
                         class="mt-1 block w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500"
                         placeholder="Enter new username">
                 </div>
                 <div class="mb-4">
-                    <label class="block text-gray-700">Email</label>
+                    <label class="block text-gray-700"></label>
                     <input type="email" id="userEmailEditInput"
                         class="mt-1 block w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500"
                         placeholder="Enter new email">
