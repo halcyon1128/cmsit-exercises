@@ -1,138 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dinosaurs Webpage</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        /* Background Image */
-        body {
-            background-image: url('https://source.unsplash.com/1600x900/?dinosaur');
-            background-size: cover;
-            background-position: center;
-        }
-    </style>
-</head>
-<!DOCTYPE html>
-<html lang="en">
+<body>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import 'https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css';
-    </style>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        cubejs_grey: "#444468",
-                        table_bg: "#f3f3fb",
-                        table_headerbg: "#f8f7fc",
-                    }
-                }
-            }
-        }
-    </script>
-</head>
-
-<body class="flex flex-col min-w-96 max-w-4xl min-h-96 max-h-screen mx-auto my-3">
-    <header class="flex p-3 justify-between items-center bg-cubejs_grey text-white">
-        <h1>cube.js</h1>
-        <div class="flex items-center justify-between">
-            <div class="flex items-center">
-                <img src="" alt="Github Icon" class="w-6 h-6 mr-2">
-                <h2>Github</h2>
-            </div>
-            <div class="flex items-center ml-4">
-                <img src="" alt="Slack Icon" class="w-6 h-6 mr-2">
-                <h2>Slack</h2>
-            </div>
+    <div id="outer" style="padding: 50px; background-color: lightblue;">
+        Outer div
+        <div id="inner" style="padding: 30px; background-color: lightcoral;">
+            Inner div
         </div>
-    </header>
-    <main class="flex flex-row sm:flex-col sm:justify-center items-start mt-4">
-        <aside class="w-32">
-            <div class="mb-4">
-                <img src="" alt="Profile Picture" class="w-16 h-16 rounded-full mb-2">
-                <h3>Some Name</h3>
-                <h4>Lorem ipsum</h4>
-            </div>
-            <hr class="mb-4">
-            <div>
-                <div class="mb-2 flex items-center">
-                    <img src="" alt="Dashboard Icon" class="w-6 h-6 mr-2">
-                    <h5>Dashboard</h5>
-                </div>
-                <div class="flex items-center">
-                    <img src="" alt="Orders Icon" class="w-6 h-6 mr-2">
-                    <h5>Orders</h5>
-                </div>
-            </div>
-        </aside>
-        <section class="flex-grow ml-4 sm:ml-0 sm:mt-4">
-            <div class="overflow-x-auto">
-                <table class="min-w-full bg-white border border-gray-200">
-                    <thead class="bg-table_headerbg">
-                        <tr>
-                            <th class="py-2 px-4 border-b">Order id</th>
-                            <th class="py-2 px-4 border-b">Orders size</th>
-                            <th class="py-2 px-4 border-b">Full Name</th>
-                            <th class="py-2 px-4 border-b">User city</th>
-                            <th class="py-2 px-4 border-b">Order price</th>
-                            <th class="py-2 px-4 border-b">Status</th>
-                            <th class="py-2 px-4 border-b">Created at</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="bg-table_bg">
-                            <td class="py-2 px-4 border-b">2</td>
-                            <td class="py-2 px-4 border-b">1</td>
-                            <td class="py-2 px-4 border-b">Oleta Langosh</td>
-                            <td class="py-2 px-4 border-b">San Francisco</td>
-                            <td class="py-2 px-4 border-b">$ 48</td>
-                            <td class="py-2 px-4 border-b">
-                                <ol>
-                                    <li>shipped</li>
-                                </ol>
-                            </td>
-                            <td class="py-2 px-4 border-b">02/01/2019</td>
-                        </tr>
-                        <!-- Add more rows as needed -->
-                    </tbody>
-                </table>
-            </div>
-        </section>
-    </main>
-</body>
-
-</html>
-
-<body class="bg-gray-200 flex items-center justify-center h-screen">
-    <div class="bg-white p-8 rounded-lg shadow-lg max-w-sm w-full">
-        <h2 class="text-3xl font-bold mb-4 text-center">Welcome to Dinosaur World</h2>
-        <form>
-            <div class="mb-4">
-                <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
-                <input type="email" id="email" name="email"
-                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                    required>
-            </div>
-            <div class="mb-6">
-                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                <input type="password" id="password" name="password"
-                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                    required>
-            </div>
-            <button type="submit"
-                class="w-full bg-indigo-500 text-white py-2 px-4 rounded-md shadow-md hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Sign
-                In / Log In</button>
-        </form>
     </div>
+
+    <script>
+        document.getElementById('outer').addEventListener('click', () => {
+            console.log('Outer div clicked - capturing');
+        }, true); // Capturing phase
+
+        document.getElementById('inner').addEventListener('click', () => {
+            console.log('Inner div clicked');
+        }); // Bubbling phase (default)
+
+        document.getElementById('outer').addEventListener('click', () => {
+            console.log('Outer div clicked - bubbling');
+        }); // Bubbling phase (default)
+    </script>
+
 </body>
 
 </html>

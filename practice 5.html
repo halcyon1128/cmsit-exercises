@@ -1,20 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Table Example</title>
     <style>
-        table,
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
         td {
             border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        button {
+            margin: 10px 0;
         }
     </style>
 </head>
 
 <body>
 
+    <table id="users_table">
+        <tr>
+            <th>Email</th>
+            <th>Name</th>
+        </tr>
+    </table>
+
+    <button onclick="addRow({email: 'new@email', name: 'new'})">Add Row</button>
+
     <script>
-
-
         const users = [
             { email: 'gab@email.com', name: 'gab' },
             { email: 'gab2@email.com', name: 'gab2' },
@@ -41,7 +62,6 @@
 
 
     </script>
-
 </body>
 
 </html>
