@@ -187,12 +187,6 @@
             // Extract form input values
             document.getElementById('editInfoButton').addEventListener('click', () => {
 
-                //remove placeholder text
-                document.getElementById('userNameEditInput').placeholder = '';
-                document.getElementById('userEmailEditInput').placeholder = '';
-                document.getElementById('userNameEditInput').classList.remove("text-gray-400");
-                document.getElementById('userEmailEditInput').classList.remove("text-gray-400");
-
 
                 const { editName, editEmail } = getFormInputs(); // INPUTS GO HERE
                 const tableBody = document.getElementById('myTable'); // Get all table contents current row
@@ -226,7 +220,19 @@
                     clearFormFields();
                     deactivateCloseModalDiv();
                 }
-            }, { once: true }); // Ensure the event listener is only added once
+            }, { once: true });
+
+            //remove placeholder text for userNameEditInput
+            document.getElementById('userNameEditInput').addEventListener('click', () => {
+                document.getElementById('userNameEditInput').placeholder = '';
+                document.getElementById('userNameEditInput').classList.remove("text-gray-400");
+            }, { once: true });
+
+            //remove placeholder text for userEmailEditInput
+            document.getElementById('userEmailEditInput').addEventListener('click', () => {
+                document.getElementById('userEmailEditInput').placeholder = '';
+                document.getElementById('userEmailEditInput').classList.remove("text-gray-400");
+            }, { once: true });
         }
 
         function deleteRow(button) {
