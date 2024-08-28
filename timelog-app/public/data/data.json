@@ -1,0 +1,215 @@
+{
+  "employees": [
+    {
+      "id": 99,
+      "name": "Rachel Cruz",
+      "email": "test@gmail.com",
+      "timeLogs": [
+        {
+          "log": 1,
+          "date": "08/01/2024",
+          "timeIn": "8 AM",
+          "timeOut": "5 PM",
+          "ot": "0 hours",
+          "totalHours": "8"
+        },
+        {
+          "log": 2,
+          "date": "08/02/2024",
+          "timeIn": "8 AM",
+          "timeOut": "5 PM",
+          "ot": "0 hours",
+          "totalHours": "8"
+        },
+        {
+          "log": 3,
+          "date": "08/03/2024",
+          "timeIn": "8 AM",
+          "timeOut": "4 PM",
+          "ot": "0 hours",
+          "totalHours": "7"
+        },
+        {
+          "log": 4,
+          "date": "08/04/2024",
+          "timeIn": "7 AM",
+          "timeOut": "4 PM",
+          "ot": "0 hours",
+          "totalHours": "8"
+        },
+        {
+          "log": 5,
+          "date": "08/05/2024",
+          "timeIn": "9 AM",
+          "timeOut": "6 PM",
+          "ot": "0 hours",
+          "totalHours": "8"
+        }
+      ]
+    },
+    {
+      "id": 98,
+      "name": "Jocelyn Reyes",
+      "email": "test1@gmail.com",
+      "timeLogs": [
+        {
+          "log": 1,
+          "date": "08/01/2024",
+          "timeIn": "10 AM",
+          "timeOut": "7 PM",
+          "ot": "0 hours",
+          "totalHours": "8"
+        },
+        {
+          "log": 2,
+          "date": "08/02/2024",
+          "timeIn": "10 AM",
+          "timeOut": "7 PM",
+          "ot": "0 hours",
+          "totalHours": "8"
+        },
+        {
+          "log": 3,
+          "date": "08/03/2024",
+          "timeIn": "10 AM",
+          "timeOut": "7 PM",
+          "ot": "0 hours",
+          "totalHours": "8"
+        },
+        {
+          "log": 4,
+          "date": "08/04/2024",
+          "timeIn": "10 AM",
+          "timeOut": "7 PM",
+          "ot": "0 hours",
+          "totalHours": "8"
+        },
+        {
+          "log": 5,
+          "date": "08/05/2024",
+          "timeIn": "10 AM",
+          "timeOut": "7 PM",
+          "ot": "0 hours",
+          "totalHours": "8"
+        }
+      ]
+    },
+    {
+      "id": 97,
+      "name": "Diwata Santos",
+      "email": "test2@gmail.com",
+      "timeLogs": [
+        {
+          "log": 1,
+          "date": "08/02/2024",
+          "timeIn": "10 AM",
+          "timeOut": "7 PM",
+          "ot": "0 hours",
+          "totalHours": "8"
+        },
+        {
+          "log": 2,
+          "date": "08/03/2024",
+          "timeIn": "10 AM",
+          "timeOut": "7 PM",
+          "ot": "0 hours",
+          "totalHours": "8"
+        },
+        {
+          "log": 3,
+          "date": "08/04/2024",
+          "timeIn": "N/A",
+          "timeOut": "N/A",
+          "ot": "N/A",
+          "totalHours": "N/A due to maternity leave "
+        },
+        {
+          "log": 4,
+          "date": "08/05/2024",
+          "timeIn": "N/A",
+          "timeOut": "N/A",
+          "ot": "N/A",
+          "totalHours": "N/A due to maternity leave "
+        }
+      ]
+    },
+    {
+      "id": 96,
+      "name": "Arnel Mendez",
+      "email": "test3@gmail.com",
+      "timeLogs": [
+        {
+          "log": 1,
+          "date": "08/02/2024",
+          "timeIn": "4 PM",
+          "timeOut": "2 AM",
+          "ot": "1 hour",
+          "totalHours": "8 hours"
+        },
+        {
+          "log": 2,
+          "date": "08/03/2024",
+          "timeIn": "4 PM",
+          "timeOut": "1 AM",
+          "ot": "0 hour",
+          "totalHours": "8 hours"
+        },
+        {
+          "log": 3,
+          "date": "08/04/2024",
+          "timeIn": "4 PM",
+          "timeOut": "1 AM",
+          "ot": "0 hour",
+          "totalHours": "8 hours"
+        },
+        {
+          "log": 4,
+          "date": "08/05/2024",
+          "timeIn": "4 PM",
+          "timeOut": "1 AM",
+          "ot": "0 hour",
+          "totalHours": "8 hours"
+        }
+      ]
+    },
+    {
+      "id": 95,
+      "name": "Imelda Rodriguez",
+      "email": "test4@gmail.com",
+      "timeLogs": [
+        {
+          "log": 1,
+          "date": "08/02/2024",
+          "timeIn": "10 AM",
+          "timeOut": "7 PM",
+          "ot": "0 hours",
+          "totalHours": "8"
+        },
+        {
+          "log": 2,
+          "date": "08/03/2024",
+          "timeIn": "10 AM",
+          "timeOut": "7 PM",
+          "ot": "0 hours",
+          "totalHours": "8"
+        },
+        {
+          "log": 3,
+          "date": "08/04/2024",
+          "timeIn": "10 AM",
+          "timeOut": "7 PM",
+          "ot": "0 hours",
+          "totalHours": "8"
+        },
+        {
+          "log": 4,
+          "date": "08/05/2024",
+          "timeIn": "10 AM",
+          "timeOut": "7 PM",
+          "ot": "0 hours",
+          "totalHours": "8"
+        }
+      ]
+    }
+  ]
+}

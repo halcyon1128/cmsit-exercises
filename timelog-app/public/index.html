@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Server Database Exercise</title>
+    <!-- tailwindcss -->
+    <link href="./output.css" rel="stylesheet" />
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.7.min.js"></script>
+    <!-- Google Material Symbols -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                "FILL" 0,
+                "wght" 400,
+                "GRAD" 0,
+                "opsz" 24;
+        }
+    </style>
+</head>
+
+<body class="bg-zinc-100 flex justify-center p-4">
+    <div id="containerMain" class="flex flex-col w-full justify-center mx-12">
+        <!-- Table: Employees -->
+        <div id="divEmployees" class="my-6">
+            <!-- Header -->
+            <div id="miscEmployees" class="flex justify-between items-center mb-2">
+                <label class="text-lg font-semibold">Employees</label>
+                <button id="addEmployeeBtn" class="bg-blue-500 hover:bg-blue-400 text-white px-4 rounded">
+                    Add
+                </button>
+            </div>
+            <!-- Body -->
+            <div id="mainEmployees" class="overflow-x-auto">
+                <!-- Table -->
+                <table id="tableEmployees" class="text-center text-base min-w-full divide-y divide-gray-200">
+                    <!-- TABLEHeader -->
+                    <thead class="bg-gray-700 text-white">
+                        <tr>
+                            <th class="uppercase tracking-wider">
+                                <input type="checkbox" class="form-checkbox" disabled />
+                            </th>
+                            <th class="uppercase tracking-wider">Name</th>
+                            <th class="uppercase tracking-wider">Email</th>
+                            <th class="uppercase tracking-wider">Action</th>
+                        </tr>
+                    </thead>
+                    <!-- TABLEBody -->
+                    <tbody class="odd: bg-gray-100 even: bg-white divide-y divide-gray-200">
+                        <!-- "EMPLOYEE" DATA GOES HERE -->
+                    </tbody>
+                </table>
+            </div>
+            <div id="delBtnDiv" class="flex justify-between items-center mt-4">
+                <button id="deleteSelectedBtn" class="bg-blue-500 hover:bg-blue-400 text-white px-4 rounded">
+                    Delete Selected
+                </button>
+            </div>
+        </div>
+        <!-- //END OF divEmployees -->
+
+        <!-- Table: TimeLog -->
+        <div id="divTimeLog" class="my-6">
+            <!-- Header -->
+            <div id="miscTimeLog" class="flex justify-between items-center mb-2">
+                <div>
+                    <label class="text-lg font-semibold">TimeLog</label>
+                    <select id="employeeSelect"
+                        class="ml-2 p-2 h-8 text-xs border-none overflow-y-auto overflow-x-auto rounded-lg">
+                        <!-- "EMPLOYEE" DATA for employeeSelect GOES HERE -->
+                    </select>
+                </div>
+                <button id="addTimeLogBtn" class="bg-blue-500 hover:bg-blue-400 text-white px-4 rounded">
+                    Add
+                </button>
+            </div>
+            <!-- Body -->
+            <div id="mainTimeLog" class="overflow-x-auto">
+                <!-- Table -->
+                <table id="tableTimeLog" class="text-center text-base min-w-full divide-y divide-gray-200">
+                    <!-- TABLEHeader -->
+                    <thead class="bg-gray-700 text-white">
+                        <tr>
+                            <th class="uppercase tracking-wider">Date</th>
+                            <th class="uppercase tracking-wider">Time In</th>
+                            <th class="uppercase tracking-wider">Time Out</th>
+                            <th class="uppercase tracking-wider">OT</th>
+                            <th class="uppercase tracking-wider">Total Hours</th>
+                            <th class="uppercase tracking-wider">Action</th>
+                        </tr>
+                    </thead>
+                    <!-- TABLEBody -->
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <!-- "TIMELOG" DATA GOES HERE -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- //END OF divTimeLog -->
+
+        <!--TIMELOG MODAL -->
+        <div id="timeLogModal"
+            class="hidden fixed inset-32 bg-white z-50 items-center p-6 rounded-md shadow-md max-h-md h-96 w-1/3 mx-auto">
+            <!-- EMPLOYEE NAME -->
+            <div class="mb-4">
+                <p id="employeeNameTimeLog" class="text-sm font-medium text-gray-700">
+                    Employee Name:
+                </p>
+            </div>
+            <!-- DATE TIME LOG -->
+            <div class="mb-4">
+                <label for="dateTimeLog" class="block text-sm font-medium text-gray-700">Date</label>
+                <select id="dateTimeLog"
+                    class="mt-1 block w-full px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <!-- Options will be added via JavaScript -->
+                </select>
+            </div>
+            <!-- TIME LOG -->
+            <div class="mb-4">
+                <label for="timeInTimeLog" class="block text-sm font-medium text-gray-700">Time IN</label>
+                <select id="timeInTimeLog"
+                    class="mt-1 block w-full px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <!-- Options will be added via JavaScript -->
+                </select>
+            </div>
+            <!-- TIME LOG -->
+            <div class="mb-4">
+                <label for="timeOutTimeLog" class="block text-sm font-medium text-gray-700">Time OUT</label>
+                <select id="timeOutTimeLog"
+                    class="mt-1 block w-full px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <!-- Options will be added via JavaScript -->
+                </select>
+            </div>
+            <!-- TOTAL + OVERTIME + SAVEbtn -->
+            <div class="mb-4">
+                <p id="totalTimeLog" class="text-sm font-medium text-gray-700">
+                    Total:
+                </p>
+            </div>
+            <div class="mb-4">
+                <p id="overtimeTimeLog" class="text-sm font-medium text-gray-700">
+                    Overtime:
+                </p>
+            </div>
+            <div class="flex justify-end">
+                <button id="saveBtnTimeLog" class="bg-blue-500 hover:bg-blue-400 text-white px-4 rounded-md">
+                    Save
+                </button>
+            </div>
+        </div>
+        <!-- //END OF timeLogModalContainer -->
+
+        <div id="addEmployeeModal"
+            class="hidden z-50 fixed inset-32 w-auto h-60 max-w-md mx-auto items-center justify-center mb-6 bg-white p-6 rounded-lg shadow-md text-slate-700">
+            <form>
+                <div class="mb-4">
+                    <label class="block text-gray-700">Enter Employee Name</label>
+                    <input type="text" id="addEmployeeInput"
+                        class="mt-1 block w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Enter first and last name" />
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700">Email</label>
+                    <input type="email" id="addEmailInput"
+                        class="mt-1 block w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Enter employee email" />
+                </div>
+                <div class="flex justify-end">
+                    <button id="pushNewEmployeeBtn" type="button"
+                        class="bg-blue-500 hover:bg-blue-400 text-white px-4 rounded-md">
+                        Save
+                    </button>
+                </div>
+            </form>
+        </div>
+        <!-- //END OF addEmployeeModalCointainer -->
+
+        <div id="deleteEmployeeModal"
+            class="hidden z-50 fixed inset-32 w-auto h-32 max-w-md max-h-xs mx-auto flex flex-col items-center justify-center m-2 bg-white p-2 rounded-lg shadow-md text-slate-700">
+            <div class="mb-4 text-center flex-col items-center">
+                <p>Proceed with delete?</p>
+                <p class="text-red-700 text-xs">
+                    This action cannot be undone (all info stored will be deleted)
+                </p>
+            </div>
+            <div class="flex justify-center items-center">
+                <button id="deleteInfoButton" type="button"
+                    class="bg-blue-500 hover:bg-blue-400 text-white px-4 mx-2 rounded-md">
+                    Delete
+                </button>
+                <button id="cancelDeleteButton" type="button"
+                    class="bg-red-500 hover:bg-red-400 text-white px-4 mx-2 rounded-md">
+                    Cancel
+                </button>
+            </div>
+        </div>
+        <!-- //END OF deleteEmployeeModalContainer -->
+    </div>
+    <!-- //END OF containerMain -->
+
+    <!-- jQuery init -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!-- JS -->
+    <script src="js/appOld.js"></script>
+</body>
+
+</html>
+<!-- 
+boilerplateOption -->

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Additional styles if needed */
+    </style>
+</head>
+
+<body>
+    <!-- Trigger Button -->
+    <button id="openModalBtn" class="bg-blue-500 hover:bg-blue-400 text-white px-4 py-2 rounded-md">Open Modal</button>
+
+    <!-- TIMELOG MODAL -->
+    <div id="timeLogModalContainer" class="hidden fixed inset-0 bg-gray-500 bg-opacity-75 z-50">
+        <div id="timeLogModal" class="flex items-center justify-center h-full">
+            <div class="bg-white rounded-lg p-6 w-full max-w-md">
+                <!-- EMPLOYEE NAME -->
+                <div class="mb-4">
+                    <p id="employeeNameTimeLog" class="text-sm font-medium text-gray-700">Employee Name:</p>
+                </div>
+                <!-- DATE TIME LOG -->
+                <div class="mb-4">
+                    <label for="dateTimeLog" class="block text-sm font-medium text-gray-700">Date</label>
+                    <select id="dateTimeLog"
+                        class="mt-1 block w-full px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <!-- Options will be added via JavaScript -->
+                    </select>
+                </div>
+                <!-- TIME IN -->
+                <div class="mb-4">
+                    <label for="timeInTimeLog" class="block text-sm font-medium text-gray-700">Time IN</label>
+                    <select id="timeInTimeLog"
+                        class="mt-1 block w-full px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <!-- Options will be added via JavaScript -->
+                    </select>
+                </div>
+                <!-- TIME OUT -->
+                <div class="mb-4">
+                    <label for="timeOutTimeLog" class="block text-sm font-medium text-gray-700">Time OUT</label>
+                    <select id="timeOutTimeLog"
+                        class="mt-1 block w-full px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <!-- Options will be added via JavaScript -->
+                    </select>
+                </div>
+                <!-- TOTAL + OVERTIME + SAVEbtn -->
+                <div class="mb-4">
+                    <p id="totalTimeLog" class="text-sm font-medium text-gray-700">Total:</p>
+                </div>
+                <div class="mb-4">
+                    <p id="overtimeTimeLog" class="text-sm font-medium text-gray-700">Overtime:</p>
+                </div>
+                <div class="flex justify-end">
+                    <button id="saveBtnTimeLog"
+                        class="bg-blue-500 hover:bg-blue-400 text-white px-4 py-2 rounded-md">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Open the modal
+            $('#openModalBtn').on('click', function () {
+                $('#timeLogModalContainer').removeClass('hidden');
+            });
+
+            // Close the modal when clicking outside the modal content
+            $('#timeLogModalContainer').on('click', function () {
+                $(this).addClass('hidden');
+                console.log("Modal container clicked");
+            });
+
+            // Prevent closing the modal when clicking inside the modal content
+            $('#timeLogModal').on('click', function (event) {
+                event.stopPropagation(); // Prevent the click event from propagating to the parent
+                console.log("Modal content clicked");
+            });
+
+            // Close the modal when clicking the save button
+            $('#saveBtnTimeLog').on('click', function () {
+                $('#timeLogModalContainer').addClass('hidden');
+                console.log("Save button clicked");
+            });
+        });
+    </script>
+</body>
+
+</html>

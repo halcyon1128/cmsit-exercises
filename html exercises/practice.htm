@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datepicker Test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- jQuery UI CSS -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
+
+<body class="flex justify-center items-center h-screen m-0 bg-gray-100 z-50">
+    <div class="w-1/3">
+        <input type="text" id="dateTimeLog">
+    </div>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- Your Custom Script -->
+    <script>
+        $(document).ready(() => {
+            $('#dateTimeLog').datepicker({
+                dateFormat: 'mm-dd-yy',
+                minDate: 0,
+                maxDate: '+1Y'
+            });
+        });
+    </script>
+</body>
+
+</html>
