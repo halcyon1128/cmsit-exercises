@@ -13,3 +13,5 @@ https://halcyon1128.github.io/cmsit-exercises/html_exercise4.html
 https://halcyon1128.github.io/cmsit-exercises/awesome.html
 
 https://halcyon1128.github.io/cmsit-exercises/html_JS-exercise1B.html
+
+https://halcyon1128.github.io/cmsit-exercises/JQ%20exercises/JQ-exercise2.html
